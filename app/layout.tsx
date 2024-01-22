@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
   keywords: [
-    "Telperion",
     "Web Development",
     "Software Development",
     "Software Engineering",
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Nathan Roark",
-      url: "https://life.nathanroark.dev",
+      url: "https://nathanroark.dev",
     },
   ],
   creator: "Nathan Roark",

@@ -1,18 +1,14 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Life",
-  url: "localhost:3000",
-  ogImage: "localhost:3000/og.jpg",
-  description: "The melancholy of...",
+  name: "Nathan Roark",
+  url: "https://life.nathanroark.dev",
+  ogImage: "https://life.nathanroark.dev/og.png", // png is the original format, jpg is there because discord keeps linking to jpg
+  description: "Conway's Game of Life",
   mainNav: [
     {
-      title: "Team",
-      href: "/team",
-    },
-    {
-      title: "Contact",
-      href: "/contact",
+      title: "Home",
+      href: "/",
     },
   ],
   links: {

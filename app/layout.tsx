@@ -3,25 +3,33 @@ import { Metadata } from "next"
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("localhost:3000/"),
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
+  metadataBase: new URL("https://nathanroark.dev"),
+  robots: {
+    index: true,
+    follow: true,
   },
+  title: siteConfig.name,
   description: siteConfig.description,
-  keywords: ["Life"],
+  keywords: [
+    "Telperion",
+    "Web Development",
+    "Software Development",
+    "Software Engineering",
+    "Engineering",
+    "Contractor",
+    "Consultant",
+  ],
   authors: [
     {
-      name: "Life",
-      url: "localhost:3000",
+      name: "Nathan Roark",
+      url: "https://life.nathanroark.dev",
     },
   ],
-  creator: "Life",
+  creator: "Nathan Roark",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -47,41 +55,36 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
+    shortcut: "/favicon-32x32.png",
     apple: "/apple-touch-icon.png",
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
 }
 
-interface RootLayoutProps {
+export default function RootLayout({
+  children,
+}: {
   children: React.ReactNode
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+}) {
   return (
-    <>
-      <html lang="en" suppressHydrationWarning>
-        <head />
-        <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable
-          )}
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body
+        className={cn(
+          "no-scrollbar overscroll-y-auto bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
         >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <div className="relative flex min-h-screen flex-col">
-              <SiteHeader />
-              <div className="flex-1">{children}</div>
-            </div>
-            <TailwindIndicator />
-          </ThemeProvider>
-        </body>
-      </html>
-    </>
+          <div>{children}</div>
+          <TailwindIndicator />
+        </ThemeProvider>
+      </body>
+    </html>
   )
 }

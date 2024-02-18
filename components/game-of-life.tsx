@@ -129,7 +129,7 @@ export const GameOfLife: React.FC = () => {
             setGrid(generateGosperGliderGun())
           }}
         >
-          gosper glider gun
+          glider gun
         </Button>
         <Button
           variant="outline"
@@ -141,9 +141,10 @@ export const GameOfLife: React.FC = () => {
         </Button>
       </div>
       <div
+        className="grid-cols-50 grid"
         style={{
           display: "grid",
-          gridTemplateColumns: `repeat(${numCols}, 20px)`,
+          gridTemplateColumns: `repeat(${numCols}, minmax(0, 1fr))`,
         }}
       >
         {grid.map((rows, i) =>
@@ -157,11 +158,10 @@ export const GameOfLife: React.FC = () => {
                 setGrid(newGrid)
               }}
               style={{
-                width: 20,
-                height: 20,
                 backgroundColor: grid[i][k] ? "#fff" : undefined,
                 border: "solid 1px #222",
               }}
+              className="size-2 sm:size-3 md:size-4 "
             />
           ))
         )}

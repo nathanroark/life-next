@@ -95,7 +95,7 @@ export const GameOfLife: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center space-y-4">
-      <div className="flex space-x-2">
+      <div className="flex space-x-2 font-sans">
         <Button
           variant="outline"
           onClick={() => {
